@@ -18,9 +18,9 @@ database.once('connected', () => {
     console.log('Database Connected');
 })
 
-app.use(cors());
-
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
