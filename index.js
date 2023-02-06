@@ -4,6 +4,7 @@ const mongoString = process.env.DATABASE_URL
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes/routes');
+const cors = require('cors');
 
 mongoose.set("strictQuery", false);
 mongoose.connect(mongoString);
@@ -16,6 +17,8 @@ database.on('error', (error) => {
 database.once('connected', () => {
     console.log('Database Connected');
 })
+
+app.use(cors());
 
 const app = express();
 
